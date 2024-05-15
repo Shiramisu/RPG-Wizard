@@ -28,6 +28,11 @@ public class Target : MonoBehaviour
 
         Destroy(gameObject);
         Hud.score += 1;
+
+        Wizard player = Wizard.instance;
+        player.stats.exp += 10;
+        player.stats.GetXp();
+        
     }
 
 }

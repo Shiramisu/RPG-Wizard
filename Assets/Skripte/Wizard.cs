@@ -67,22 +67,29 @@ public class Wizard : MonoBehaviour
             animator.SetBool("Attack", true);
 
             stats.mp -= 10;
-            Hud.mp = stats.mp;
             
         } else if(Input.GetKeyUp(KeyCode.Space)) animator.SetBool("Attack", false);
 
         timer += Time.deltaTime;
 
-        if (movement == Vector3.zero){
-            if(stats.mp != stats.max_mp){
-                if (timer > 3){
-                stats.mp += stats.manaReg;
-                Hud.mp = stats.mp;
-                timer = 0;
+        if (movement == Vector3.zero)
+        {
+            if (stats.mp != stats.max_mp)
+            {
+                if (timer > 3)
+                {
+                    stats.mp += stats.manaReg;
+                    timer = 0;
+                }
+            }
+            if (stats.hp != stats.max_hp)
+            {
+                if (timer > 3)
+                {
+                    stats.hp += stats.healthReg;
+                    timer = 0;
                 }
             }
         }
-
-    
     }
 }
