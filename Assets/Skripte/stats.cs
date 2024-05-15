@@ -11,5 +11,6 @@ public class stats
     public int max_hp = 100;
     public int speed = 2;
     public float castTime = 5;
-
+    public float exp = 0;
+    public float lvl = 0;
 }
