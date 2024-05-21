@@ -12,6 +12,11 @@ public class Wizard : MonoBehaviour
     private Animator animator;
     public stats stats;
 
+    public int hp = 100;
+    public float mp = 50;
+
+    public stats playerstats;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,14 +64,14 @@ public class Wizard : MonoBehaviour
         // Casting
         stats.castTime += Time.deltaTime;
         
-        if (stats.castTime > 1 && Input.GetKeyDown(KeyCode.Space) && stats.mp != 0)
+        if (stats.castTime > 1 && Input.GetKeyDown(KeyCode.Space) && mp != 0)
         {
             GameObject obj = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
             obj.GetComponent<Fireball>().direction = lastMovement;
             stats.castTime = 0;
             animator.SetBool("Attack", true);
 
-            stats.mp -= 10;
+            mp -= 10;
             
         } else if(Input.GetKeyUp(KeyCode.Space)) animator.SetBool("Attack", false);
 
@@ -74,19 +79,19 @@ public class Wizard : MonoBehaviour
 
         if (movement == Vector3.zero)
         {
-            if (stats.mp != stats.max_mp)
+            if (mp != stats.max_mp)
             {
                 if (timer > 3)
                 {
-                    stats.mp += stats.manaReg;
+                    mp += stats.manaReg;
                     timer = 0;
                 }
             }
-            if (stats.hp != stats.max_hp)
+            if (hp != stats.max_hp)
             {
                 if (timer > 3)
                 {
-                    stats.hp += stats.healthReg;
+                    hp += stats.healthReg;
                     timer = 0;
                 }
             }

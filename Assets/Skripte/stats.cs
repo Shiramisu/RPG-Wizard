@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class stats
 {
-    public float mp = 100;
-    public float hp = 100;
     public int manaReg = 10;
     public int healthReg = 10;
     public float max_mp = 100;
@@ -28,22 +26,28 @@ public class stats
     public void LevelUp()
     {
         lvl++;
-        max_hp += 10;
-        max_mp += 10;
-        castTime -= 0.5f;
+        skillpoints++;
+        Skills();
     }
     public void Skills()
     {
-        switch (lvl)
+        switch ((int)Random.value*4)
         {
             case 0:
+                skillpoints--;
                 max_hp += 10;
                 break; 
             case 1:
+                skillpoints--;
                 max_mp += 10;
                 break;
             case 2:
+                skillpoints--;
                 castTime -= 0.5f;
+                break;
+            case 3:
+                skillpoints--;
+                speed += 0.5f;
                 break;
         }
     }
