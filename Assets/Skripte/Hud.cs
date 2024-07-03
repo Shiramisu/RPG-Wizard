@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public TMP_Text Score_Text;
     public TMP_Text MP_Text;
     public TMP_Text HP_Text;
@@ -27,7 +25,6 @@ public class Hud : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         Wizard player = Wizard.instance;

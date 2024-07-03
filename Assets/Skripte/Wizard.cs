@@ -15,9 +15,8 @@ public class Wizard : MonoBehaviour
     public int hp = 100;
     public float mp = 50;
 
-    public stats playerstats;
+    public static stats playerstats;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,10 +24,8 @@ public class Wizard : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Movement
         movement = new Vector3(0,0,0);
         if (Input.GetKey("w"))
         {
@@ -59,9 +56,6 @@ public class Wizard : MonoBehaviour
             animator.SetBool("Walking", true);
         } else animator.SetBool("Walking", false);
         
-
-        //GetKomponent<Fireball>().
-        // Casting
         stats.castTime += Time.deltaTime;
         
         if (stats.castTime > 1 && Input.GetKeyDown(KeyCode.Space) && mp != 0)
